@@ -27,7 +27,8 @@ img {
 }
 
 .value {
-
+align-items: center;
+  justify-content: center;
   
   font-weight: 900;
   font-size: 18px;
@@ -35,14 +36,22 @@ img {
   text-align: center;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  /* color: #ffffff;
-  background: rgba(47, 48, 58, 0.8); */
+  color: #ffffff;
+  background: rgba(47, 48, 58, 0.8);
 }
 
 .value:not(:last-child) {
-  margin-right: 10px;
+  margin-right: 40px;
+  margin-left: 40px;
 }
 
-.label:not(:last-child) {
-  margin-right: 10px;
+.field {
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  margin-bottom: 40px;
 }
