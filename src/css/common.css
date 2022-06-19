@@ -16,3 +16,33 @@ img {
   display: block;
   max-width: 100%;
 }
+.timer {
+  display: flex;
+  flex-wrap: wrap;
+
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+}
+
+.value {
+
+  
+  font-weight: 900;
+  font-size: 18px;
+  line-height: calc(16 / 14);
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  /* color: #ffffff;
+  background: rgba(47, 48, 58, 0.8); */
+}
+
+.value:not(:last-child) {
+  margin-right: 10px;
+}
+
+.label:not(:last-child) {
+  margin-right: 10px;
+}
