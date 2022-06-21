@@ -31,10 +31,14 @@ const colorPicker = {
 
 function onstartBtnClick(evn) {
   colorPicker.start();
+  refs.startBtn.setAttribute('disabled', true);
+  refs.stopBtn.removeAttribute('disabled');
 }
 
 function onStopBtnClick(evn) {
   colorPicker.stop();
+  refs.startBtn.removeAttribute('disabled');
+  refs.stopBtn.setAttribute('disabled', true);
 }
 
 function getRandomHexColor() {

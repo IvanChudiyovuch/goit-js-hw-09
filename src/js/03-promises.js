@@ -13,6 +13,8 @@ function onFormSubmit(event) {
   const amount = Number.parseInt(formElements.amount.value);
   const step = Number.parseInt(formElements.step.value);
 
+  event.currentTarget.reset();
+
   for (let position = 1; position <= amount; position += 1) {
     let DELAY = delay + step * position;
     createPromise(position, DELAY)

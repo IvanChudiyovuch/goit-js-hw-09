@@ -2,6 +2,7 @@ import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 
 const refs = {
+  input: document.querySelector('input'),
   startBtn: document.querySelector('button[data-start]'),
   spanDays: document.querySelector('span[data-days]'),
   spanHours: document.querySelector('span[data-hours]'),
@@ -27,23 +28,27 @@ const options = {
 };
 
 const timer = {
+  intervalId: null,
   isActiv: false,
 
   start() {
     if (this.isActiv) {
       return;
     }
-
     const startTime = datePiker.selectedDates[0];
 
     this.isActiv = true;
 
-    setInterval(() => {
+    this.intervalId = setInterval(() => {
       const currentTime = Date.now();
       const deltaTime = startTime - currentTime;
       const { days, hours, minutes, seconds } = convertMs(deltaTime);
 
       updateClockface({ days, hours, minutes, seconds });
+
+      if (deltaTime < 1000) {
+        clearInterval(this.intervalId);
+      }
     }, 1000);
   },
 };
@@ -52,6 +57,9 @@ refs.startBtn.addEventListener('click', onStartBtnClick);
 
 function onStartBtnClick(evt) {
   timer.start();
+
+  refs.input.setAttribute('disabled', true);
+  refs.startBtn.setAttribute('disabled', true);
 }
 
 const datePiker = flatpickr('#datetime-picker', options);
